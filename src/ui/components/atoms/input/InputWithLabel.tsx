@@ -1,15 +1,16 @@
 import {Text, TextInput, View} from 'react-native';
-import React from 'react';
-import AppText from '../text/AppText';
-import {Style, useTheme} from '../../screens/Common';
-import {inputLabelProps} from 'src/types/atoms';
+import React, {FC} from 'react';
 import CustomText from '../CustomText';
+import {inputLabelProps} from '@utils/types/ui/atomType';
+import {useTheme} from '@utils/theme/ThemeProvider';
+import {GlobalStyle} from '@ui/styles/global';
 
-const InputWithLabel: React.FC<inputLabelProps> = ({
+const InputWithLabel: FC<inputLabelProps> = ({
   label,
   required,
   style,
-  weight = 'normal',
+  fontWeight = 'normal',
+  isLabel = true,
   ...props
 }) => {
   const {colors} = useTheme();
@@ -20,16 +21,21 @@ const InputWithLabel: React.FC<inputLabelProps> = ({
     }),
     [colors],
   );
+
   return (
     <>
-      <CustomText weight={weight ?? '700'} size={12} color={colors.text}>
-        {label} {required && <Text style={Style.Error}>*</Text>}
-      </CustomText>
-      <CustomText title={`${label}  `} />
-      <View style={Style.inputFieldWrapper}>
+      {isLabel ? (
+        <CustomText
+          fontWeight={fontWeight ?? '700'}
+          size={12}
+          color={colors.text}>
+          {label} {required && <Text style={GlobalStyle.Error}>*</Text>}
+        </CustomText>
+      ) : null}
+      <View style={GlobalStyle.inputFieldWrapper}>
         <TextInput
-          placeholder={label}
-          style={[Style.inputField, THEME.text, THEME.border, style]}
+          // placeholder={label}
+          style={[GlobalStyle.inputField, THEME.text, THEME.border, style]}
           placeholderTextColor={colors.lightText}
           {...props}
         />

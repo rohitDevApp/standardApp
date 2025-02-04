@@ -6,18 +6,20 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import AppText from '../text/AppText';
-import {Style, useTheme} from '../../screens/Common';
-import {inputLabelProps} from 'src/types/atoms';
-import {Hide, Show} from 'src/static/assests/SVG/Icons/Icons';
+// import {Hide, Show} from 'src/static/assests/SVG/Icons/Icons';
 import {moderateScale} from 'react-native-size-matters';
+import CustomText from '../CustomText';
+import {inputLabelProps} from '@utils/types/ui/atomType';
+import {GlobalStyle} from '@ui/styles/global';
+import {useTheme} from '@utils/theme/ThemeProvider';
 
 const PasswordInput: React.FC<inputLabelProps> = ({
   label,
   required,
-  weight = 'normal',
+  fontWeight = 'normal',
   style,
   eye = true,
+  isLabel = true,
   ...props
 }) => {
   const [toggelPassIcon, setToggelPassIcon] = useState<boolean>(false);
@@ -31,24 +33,18 @@ const PasswordInput: React.FC<inputLabelProps> = ({
   );
   return (
     <>
-      <AppText weight={weight ?? '700'} size={12} color={colors.text}>
-        {label} {required && <Text style={Style.Error}>*</Text>}
-        {label === 'Duration' ? (
-          <AppText size={11} color={colors.text}>
-            (In Months )
-          </AppText>
-        ) : label === 'Additional Detail' ? (
-          <AppText size={11} color={colors.text}>
-            <AppText size={11} color={colors.text}>
-              (Optional )
-            </AppText>{' '}
-          </AppText>
-        ) : null}
-      </AppText>
-      <View style={[Style.inputFieldWrapper]}>
+      {isLabel ? (
+        <CustomText
+          fontWeight={fontWeight ?? '700'}
+          size={12}
+          color={colors.text}>
+          {label} {required && <Text style={GlobalStyle.Error}>*</Text>}
+        </CustomText>
+      ) : null}
+      <View style={[GlobalStyle.inputFieldWrapper]}>
         <TextInput
-          style={[Style.inputField, THEME.border, THEME.text, style]}
-          placeholder={label}
+          style={[GlobalStyle.inputField, THEME.border, THEME.text, style]}
+          // placeholder={label}
           placeholderTextColor={colors.lightText}
           secureTextEntry={!toggelPassIcon}
           {...props}
@@ -57,11 +53,11 @@ const PasswordInput: React.FC<inputLabelProps> = ({
           <TouchableOpacity
             style={[styles.showPassIcon]}
             onPress={() => setToggelPassIcon(!toggelPassIcon)}>
-            {toggelPassIcon ? (
+            {/* {toggelPassIcon ? (
               <Hide color={colors.text} />
             ) : (
               <Show color={colors.text} />
-            )}
+            )} */}
           </TouchableOpacity>
         )}
       </View>

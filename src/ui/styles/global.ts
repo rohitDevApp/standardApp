@@ -7,7 +7,7 @@ import {
 } from 'react-native-size-matters';
 
 export const GlobalStyle = StyleSheet.create({
-  exactCenter: {
+  alignCenter: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -32,6 +32,7 @@ export const GlobalStyle = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
+    marginVertical: 4,
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -42,7 +43,7 @@ export const GlobalStyle = StyleSheet.create({
       },
       android: {
         elevation: moderateScale(9),
-        paddingVertical: verticalScale(3),
+        paddingVertical: verticalScale(6),
       },
     }),
   },
@@ -73,6 +74,8 @@ export const GlobalStyle = StyleSheet.create({
   innerContainer: {
     width: '85%',
     margin: 'auto',
+    justifyContent: 'center',
+    height: 200,
   },
 
   Error: {
@@ -192,7 +195,7 @@ export const GlobalStyle = StyleSheet.create({
   //Input Style
   inputField: {
     borderWidth: 1,
-    borderRadius: moderateScale(16),
+    borderRadius: moderateScale(8),
     ...Platform.select({
       ios: {
         paddingVertical: moderateScale(14),
@@ -221,7 +224,7 @@ export const GlobalStyle = StyleSheet.create({
   //Input Field Wrapper
   inputFieldWrapper: {
     justifyContent: 'center',
-    marginTop: moderateVerticalScale(5),
+    marginVertical: moderateVerticalScale(8),
   },
 
   //button Style

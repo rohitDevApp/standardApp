@@ -4,5 +4,6 @@ export enum ROUTES {
   SIGN_UP = 'SignUp',
   SPLASH = 'Splash',
   HOME = 'Home',
+  DASHBOARD = 'Dashboard',
   NOTIFICATION = 'Notification',
 }

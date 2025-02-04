@@ -8,6 +8,7 @@ import {
   SplashScreen,
 } from '@ui/screens';
 import {ROUTES} from '@constants/enum/Navigation';
+import Dashboard from '@ui/screens/dashboard/Dashboard';
 
 const Stack = createNativeStackNavigator();
 const StackScreens = () => {
@@ -17,6 +18,7 @@ const StackScreens = () => {
       <Stack.Screen name={ROUTES.LOGIN} component={LoginScreen} />
       <Stack.Screen name={ROUTES.SIGN_UP} component={SignupScreen} />
       <Stack.Screen name={ROUTES.HOME} component={HomeScreen} />
+      <Stack.Screen name={ROUTES.DASHBOARD} component={Dashboard} />
       <Stack.Screen name={ROUTES.NOTIFICATION} component={NotificationScreen} />
     </Stack.Navigator>
   );

@@ -24,7 +24,7 @@ export type ellipsizeMode = 'head' | 'middle' | 'tail' | 'clip' | undefined;
 export interface appTextType {
   children: React.ReactNode;
   color: string;
-  weight?: fontWeightType;
+  fontWeight?: fontWeightType;
   size: number;
   numberOfLines?: number;
   ellipsizeMode?: 'tail';
@@ -50,13 +50,13 @@ export interface customBtnProps {
 
 //Search Props
 export interface searchProps {
-  defaultValue: string;
   onChangeText: (text: string) => void;
 }
 
 //interface Input With Label
 export interface inputLabelProps {
   label: string;
+  isLabel?: boolean;
   subLabel?: string;
   code?: string;
   dark?: string;
@@ -71,4 +71,9 @@ export interface inputLabelProps {
   style?: object;
   onChangeText?: (fieldName: string) => void;
   onBlur?: () => void;
+}
+
+//Node Type
+export interface childrenType {
+  children: ReactNode;
 }

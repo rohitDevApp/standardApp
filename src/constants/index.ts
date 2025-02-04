@@ -15,3 +15,7 @@ export enum COLOR {
   ERROR = '#FF5B61',
   LIGHTGREEN = '#34A853',
 }
+
+//Scroll Bar Color
+export const SCR_COLOR = ['#FFB040'];
+export const TINT_COLOR = '#FFB040';

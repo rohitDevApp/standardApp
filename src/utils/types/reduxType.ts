@@ -12,7 +12,6 @@ export namespace ReduxType {
   export interface SignUpArg {
     username: string;
     password: string;
-    notificationToken: string | undefined;
   }
 
   //saveNotifyArg
